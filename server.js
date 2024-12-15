@@ -31,16 +31,17 @@ app.post('/search', (req, res) => {
         for(let i = 0; i < movieGenreIds.length; i++){ // i++ - i = i + 1
             for(let j = 0; j < movieGenres.length; j++) {
                 if(movieGenreIds[i] === movieGenres [j].id){
-                    movieGenresArray.push(movieGenres[j].name)
+                    movieGenresArray.push(movieGenres[j].name);
                 }
             }
         }
         
         let genresToDisplay ='';
         movieGenresArray.forEach(genre => {
-            genresToDisplay = genresToDisplay+ `${genre.name}, `;           
+            genresToDisplay = genresToDisplay+ `${genre}, `;           
         });
-        let genresUpdate = genresToDisplay.slice(0, -2) + '.';
+        
+        genresToDisplay = genresToDisplay.slice(0, -2) + '.';
           
 
         let movieData = {
